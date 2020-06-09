@@ -45,5 +45,5 @@ curl -X PUT -H "Content-Type: application/json" -d '{"memo":"アーキテクチ�
 
 * DELETE
 ```
-curl https://us-central1-react-firebase-f3f4a.cloudfunctions.net/api/tsundokus/1
+curl -X DELETE https://us-central1-react-firebase-f3f4a.cloudfunctions.net/api/tsundokus/1
 ```
