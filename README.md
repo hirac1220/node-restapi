@@ -24,7 +24,6 @@ curl http://localhost:5000/react-firebase-f3f4a/us-central1/api/tests/1
 ```
 
 ## CloudFunction環境
-
 * GET
 ```
 curl https://us-central1-react-firebase-f3f4a.cloudfunctions.net/api/tests
