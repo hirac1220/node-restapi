@@ -3,46 +3,47 @@
 ## ローカル環境
 * GET
 ```
-curl http://localhost:5000/react-firebase-f3f4a/us-central1/api/tests
+curl http://localhost:5000/react-firebase-f3f4a/us-central1/api/tsundokus
 
-curl http://localhost:5000/react-firebase-f3f4a/us-central1/api/tests/1
+curl http://localhost:5000/react-firebase-f3f4a/us-central1/api/tsundokus/1
 ```
 
 * POST
 ```
-curl http://localhost:5000/react-firebase-f3f4a/us-central1/api/tests
+curl -X POST -H "Content-Type: application/json" -d '{"title":"UXデザインをはじめる本","location":"本棚","memo":"UXやってみる"}' localhost:5000/react-firebase-f3f4a/us-central1/api/tsundokus
 ```
 
 * PUT
 ```
-curl http://localhost:5000/react-firebase-f3f4a/us-central1/api/tests/1
+curl -X PUT -H "Content-Type: application/json" -d '{"memo":"アーキテクチャ参考にする"}' localhost:5000/react-firebase-f3f4a/us-central1/api/tsundokus/1
 ```
 
 * DELETE
 ```
-curl http://localhost:5000/react-firebase-f3f4a/us-central1/api/tests/1
+curl http://localhost:5000/react-firebase-f3f4a/us-central1/api/tsundokus/1
 ```
 
 ## CloudFunction環境
 * GET
 ```
-curl https://us-central1-react-firebase-f3f4a.cloudfunctions.net/api/tests
+curl https://us-central1-react-firebase-f3f4a.cloudfunctions.net/api/tsundokus
 
-curl https://us-central1-react-firebase-f3f4a.cloudfunctions.net/api/tests/1
+curl https://us-central1-react-firebase-f3f4a.cloudfunctions.net/api/tsundokus/1
 ```
 
 
 * POST
 ```
-curl https://us-central1-react-firebase-f3f4a.cloudfunctions.net/api/tests
+curl -X POST -H "Content-Type: application/json" -d '{"title":"UXデザインをはじめる本","location":"本棚","memo":"UXやってみる"}' https://us-central1-react-firebase-f3f4a.cloudfunctions.net/api/tsundokus
 ```
 
 * PUT
 ```
-curl https://us-central1-react-firebase-f3f4a.cloudfunctions.net/api/tests/1
+curl -X PUT -H "Content-Type: application/json" -d '{"memo":"アーキテクチャ参考にする"}' us-central1-react-firebase-f3f4a.cloudfunctions.net/api/tsundokus/1
+
 ```
 
 * DELETE
 ```
-curl https://us-central1-react-firebase-f3f4a.cloudfunctions.net/api/tests/1
+curl https://us-central1-react-firebase-f3f4a.cloudfunctions.net/api/tsundokus/1
 ```

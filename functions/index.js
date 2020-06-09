@@ -9,55 +9,57 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-const tests = [
-    { id: 1, name: 'test1' },
-    { id: 2, name: 'test2' },
-    { id: 3, name: 'test3' },
+const tsundokus = [
+    { id: 1, title: 'マイクロサービスアーキテクチャ', location: 'サイドテーブル', memo: 'CICD勉強する' },
+    { id: 2, title: 'オフショアプロジェクトマネジメント', location: '机', memo: '海外エンジニアメンタリング'  },
+    { id: 3, title: 'チーム・ジャーニー', location: '本棚', memo: 'PM勉強'   },
 ];
 
 app.get('/', (req, res) => {
-    res.send('node rest api');
+    res.send('積ん読リスト rest api by node.js');
 });
 
 // get
-app.get('/tests', (req, res) => {
-    res.send(tests);
+app.get('/tsundokus', (req, res) => {
+    res.send(tsundokus);
 });
 
-app.get('/tests/:id', (req, res) => {
-    const test = tests.find(c => c.id === parseInt(req.params.id));
-    if (!test) return res.status(404).send('Not found.');
-    res.send(test);
+app.get('/tsundokus/:id', (req, res) => {
+    const tsundoku = tsundokus.find(c => c.id === parseInt(req.params.id));
+    if (!tsundoku) return res.status(404).send('Not found.');
+    res.send(tsundoku);
 });
 
 // post
-app.post('/tests', (req, res) => {
-    const test = {
-        id: tests.length + 1,
-        name: req.body.name
+app.post('/tsundokus', (req, res) => {
+    const tsundoku = {
+        id: tsundokus.length + 1,
+        title: req.body.title,
+        location: req.body.location,
+        memo: req.body.memo
     };
-    tests.push(test);
-    res.send(test);
+    tsundokus.push(tsundoku);
+    res.send(tsundoku);
 });
 
 // put
-app.put('/tests/:id', (req, res) => {
-    const test = tests.find(c => c.id === parseInt(req.params.id));
-    if (!test) return res.status(404).send('Not found.');
+app.put('/tsundokus/:id', (req, res) => {
+    const tsundoku = tsundokus.find(c => c.id === parseInt(req.params.id));
+    if (!tsundoku) return res.status(404).send('Not found.');
 
-    test.name = req.body.name;
-    res.send(test);
+    tsundoku.memo  = req.body.memo;
+    res.send(tsundoku);
 });
 
 // delete
-app.delete('/tests/:id', (req, res) => {
-    const test = tests.find(c => c.id === parseInt(req.params.id));
-    if (!test) return res.status(404).send('Not found.');
+app.delete('/tsundokus/:id', (req, res) => {
+    const tsundoku = tsundokus.find(c => c.id === parseInt(req.params.id));
+    if (!tsundoku) return res.status(404).send('Not found.');
 
-    const index = tests.indexOf(test);
-    tests.splice(index, 1);
+    const index = tsundokus.indexOf(tsundoku);
+    tsundokus.splice(index, 1);
 
-    res.send(test);
+    res.send(tsundoku);
 });
 
 const api = functions.https.onRequest(app);
